@@ -1,0 +1,32 @@
+#
+intents:
+  ColorizeLights:
+    action:
+      - service: homeassistant.turn_on
+        data_template:
+          entity_id: scene.{{ Color | replace(" ", "_") }}
+          #The replace(" ", "_") allows us to fix the space that Amazon passes to us
+    speech:
+      type: plaintext
+      text: >
+        {% if Color == "pink" %}
+          Your backlight is {{ Color }}
+        {% elif Color == "blue" %}
+          Your backlight is {{ Color }}
+        {% elif Color == "orange" %}
+          Your backlight is now gross
+        {% elif Color == "purple" %}
+          Your backlight is {{ Color }}
+        {% elif Color == "yellow" %}
+          Your backlight is {{ Color }}
+        {% elif Color == "azure" %}
+          Your backlight is {{ Color }}
+        {% elif Color == "red" %}
+          Your backlight is {{ Color }}
+        {% elif Color == "green" %}
+          Your backlight is {{ Color }}
+        {% elif Color == "white" %}
+          Your backlight is {{ Color }}
+        {% else %}
+          I don't know that color. I don't see any color. Are you a racist?
+        {% endif %}

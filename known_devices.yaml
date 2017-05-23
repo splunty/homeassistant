@@ -1,0 +1,20 @@
+
+# this works... stalks Andrew no problem
+owntracks_android:
+  hide_if_away: false
+  mac:
+  name: Andrewstalker
+  picture:
+  track: false
+  vendor:
+
+# this almsot works, never shows up on map
+# device_tracker.owntracks_spluntyphone
+owntracks_spluntyphone:
+  hide_if_away: false
+  mac:
+  name: michael
+  picture:
+  track: true
+  vendor:
+

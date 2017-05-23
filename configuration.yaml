@@ -1,0 +1,137 @@
+homeassistant:
+  name: Home
+  customize: !include customize.yaml
+  unit_system: imperial
+  latitude: 30.626784
+  longitude: -96.325236
+  elevation: 103
+  time_zone: America/Chicago
+
+logbook: # View all events in a logbook
+updater: # Checks for available updates
+sun: # Track the sun
+frontend: # Enables the frontend
+history: # Enables support for tracking state changes over time.
+
+http:
+  api_password: haha
+
+#mqtt:
+#  broker: haha
+#  port: 8883
+#  keepalive: 60
+#  username: owntracks
+#  password: haha
+#  certificate: /etc/ssl/certs/ca-certificates.crt
+
+#Local MQTT Only (local devices publish here, and I subscribe over ssl via bridged remote MQTT)
+mqtt:
+  broker: 127.0.0.1
+  port: 1883
+  keepalive: 60
+  username: owntracks
+  password: haha
+
+notify:
+  platform: pushbullet
+  api_key: haha
+  name: notify_push_android
+
+zone:
+  name: Work
+  latitude: haha
+  longitude: haha
+  radius: 500
+  icon: mdi:worker
+
+zone 2:
+  name: Allergy Clinic
+  latitude: haha
+  longitude: haha
+  radius: 500
+  icon: mdi:worker
+
+proximity:
+  home:
+    devices:
+      - device_tracker.owntracks_spluntyphone
+    tolerance: 50
+    unit_of_measurement: mi
+
+device_tracker:
+  - platform: owntracks
+
+light:
+  platform: limitlessled
+  bridges:
+  - host: 10.10.10.8
+    version: 5
+    port: 8899
+    groups:
+    - number: 1
+      type: rgbw
+      name: tv_led
+    - number: 2
+      type: rgbw
+      name: bedroom_led
+    - number: 3
+      type: rgbw
+      name: livingroom_led
+
+weblink:
+  entities:
+    - name: andrew_ha
+      url: https://github.com/aneisch/home-assistant
+      icon: mdi:chair-school
+    - name: pics
+      url: http://ftp.thurk.net/cgi-bin/index.cgi
+      icon: mdi:google-photos
+    - name: purge_pics
+      url: http://ftp.thurk.net/cgi-bin/purge.cgi
+      icon: mdi:shovel
+
+emulated_hue:
+  type: alexa
+  host_ip: 10.10.10.201
+  listen_port: 8300
+  expose_by_default: true
+  exposed_domains:
+    - script
+    - light
+    - scene
+
+camera 1:
+  platform: foscam
+  ip: 10.10.10.16
+  name: frontcam
+  port: 88
+  username: admin
+  password: haha
+
+camera 2:
+  platform: foscam
+  ip: 10.10.10.17
+  name: backcam
+  port: 88
+  username: admin
+  password: haha
+
+cover:
+  - platform: mqtt
+    name: "Garage Door"
+    state_topic: "sensor/garage_door"
+    command_topic: "cmd/garage_door"
+
+zwave:
+  usb_path: /dev/ttyACM0
+
+alexa: !include alexa.yaml
+automation: !include automation.yaml
+group: !include group.yaml
+input_boolean: !include input_boolean.yaml
+scene: !include scenes.yaml
+script: !include scripts.yaml
+sensor: !include sensors.yaml
+#shell_command: !include shell_command.yaml
+#switch: !include switches.yaml
+

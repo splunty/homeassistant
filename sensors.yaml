@@ -1,0 +1,38 @@
+- platform: darksky
+  api_key: haha
+  monitored_conditions:
+    - summary
+    - nearest_storm_distance
+    - nearest_storm_bearing
+    - precip_probability
+    - temperature
+    - wind_speed
+    - wind_bearing
+    - humidity
+    - pressure
+
+- platform: systemmonitor
+  resources:
+    - type: 'disk_use_percent'
+      arg: /
+    - type: 'disk_use_percent'
+      arg: /home
+    - type: 'disk_use_percent'
+      arg: /tmp
+    - type: 'disk_use_percent'
+      arg: /var
+    #- type: disk_free
+    #  arg: /
+    - type: 'memory_use_percent'
+    - type: 'processor_use'
+
+- platform: mqtt
+  state_topic: "moon"
+  name: "Moon Phase"
+  value_template: "{{ value_json.phase }}"
+
+- platform: mqtt
+  state_topic: "splunty/tracking"
+  name: whereami
+  value_template: "{{ value_json.tracking }}"
+

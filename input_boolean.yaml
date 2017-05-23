@@ -1,0 +1,4 @@
+safety_enable:
+  name: Disable Automation
+  initial: off
+  icon: mdi:lock

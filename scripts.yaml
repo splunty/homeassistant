@@ -1,0 +1,41 @@
+# https://github.com/home-assistant/home-assistant/issues/704
+
+bedtime_timer:
+  # This is a wrapper to stop an existing timer if I go to bed twice
+  alias: "Bedtime Timer"
+  sequence:
+    - service: script.turn_off
+      data:
+        entity_id: script.bedroom_led_tick_tock
+    - service: script.turn_on
+      data:
+        entity_id: script.bedroom_led_tick_tock
+
+bedroom_led_tick_tock:
+  alias: "Gently turn off bedroom light"
+  sequence:
+    - service: light.turn_on
+      data:
+        entity_id: light.bedroom_led
+        transition: 0
+        rgb_color: [0, 0, 2]
+        brightness: 10
+    - delay:
+        seconds: 1200
+    - service: light.turn_off
+
+killer_2:
+  alias: "Turn on lamp and set timer"
+  sequence:
+    - service: script.turn_off
+      data:
+         entity_id: script.bedroom_led_tick_tock
+
+restart_ha:
+  alias: "Restart Home Assistant"
+  sequence:
+    - condition: state
+      entity_id: input_boolean.safety_enable
+      state: 'off'
+    - service: homeassistant.restart
+

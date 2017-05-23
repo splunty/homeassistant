@@ -1,0 +1,4 @@
+#- platform: orvibo
+#  host: 192.168.0.115
+#  mac: ac:cf:23:9c:9c:f4
+#  name: leelacam_switch

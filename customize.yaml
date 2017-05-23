@@ -1,0 +1,88 @@
+light.tv_led:
+  friendly_name: TV Lights
+  emulated_hue_name: Backlight
+  icon: mdi:monitor
+light.bedroom_led:
+  friendly_name: Bedroom Light
+  icon: mdi:lightbulb
+light.livingroom_led:
+  friendly_name: Lamp
+  icon: mdi:lamp
+light.frontporchzwavebulb_level_2_0:
+  friendly_name: Front Porch Light
+  icon: mdi:lightbulb
+
+scene.bedtime_scene:
+  friendly_name: Nightlight
+  emulated_hue_name: Nightlight
+  icon: mdi:sleep
+scene.tv_normal_scene:
+  friendly_name: White Lights
+  emulated_hue: false
+  icon: mdi:white-balance-sunny
+scene.white:
+  friendly_name: White Lights
+  emulated_hue_name: White Backlight
+scene.red:
+  friendly_name: Red Lights
+  emulated_hue_name: Red Backlight
+scene.blue:
+  friendly_name: Blue Lights
+  emulated_hue_name: Blue
+scene.green:
+  friendly_name: Green Lights
+  emulated_hue_name: Green Backlight
+scene.orange:
+  friendly_name: Orange Lights
+  emulated_hue_name: Orange Backlight
+scene.pink:
+  friendly_name: Pink Lights
+  emulated_hue_name: Pink Backlight
+scene.azure:
+  friendly_name: Baby Blue Lights
+  emulated_hue_name: Azure Backlight
+scene.yellow:
+  friendly_name: Yellow Lights
+  emulated_hue_name: Yellow Backlight
+
+sensor.weather_summary:
+  friendly_name: Conditions
+  icon: mdi:weather-lightning-rainy
+sensor.weather_humidity:
+  friendly_name: Humidity
+  icon: mdi:water-percent
+sensor.weather_precip_probability:
+  friendly_name: Percent Chance of Rain
+  icon: mdi:weather-rainy
+sensor.whereami:
+  friendly_name: Where is Mike?
+  icon: mdi:help
+sensor.weather_temperature:
+  friendly_name: Current Outdoor
+
+group.tools_grp:
+  friendly_name: Tools
+group.safety_enable:
+  friendly_name: Safety Switch
+
+script.restart_ha:
+  emulated_hue: false
+  icon: mdi:autorenew
+script.bedtime_timer:
+  emulated_hue: false
+script.bedroom_led_tick_tock:
+  emulated_hue: false
+script.killer_2:
+  emulated_hue: false
+
+link.andrew_ha:
+  friendly_name: Andrew's HA Config
+
+input_boolean.safety_enable:
+  friendly_name: Disable Automation
+
+#device_tracker.owntracks_android:
+#  friendly_name: Spying on Andrew
+device_tracker.owntracks_spluntyphone:
+  friendly_name: Splunty Android
+  #entity_picture: /local/andrew.jpg

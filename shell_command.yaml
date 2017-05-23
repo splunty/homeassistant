@@ -1,0 +1,2 @@
+#nissan_ac_on: '/home/hass/.homeassistant/bin/nissan.py on'
+#nissan_ac_off: '/home/hass/.homeassistant/bin/nissan.py off'

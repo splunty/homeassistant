@@ -1,0 +1,71 @@
+default_view:
+  view: yes
+  entities:
+    - group.lights
+    - group.trackers
+mycameras:
+  name: cams
+  view: yes
+  entities:
+    - group.cameras
+    - weblink.pics
+    - weblink.purge_pics
+info:
+  name: info
+  view: yes
+  entities:
+    - group.weather
+    - group.system
+tools:
+  name: tool
+  view: yes
+  entities:
+    - group.links
+    - group.safety
+    - group.tools_grp
+
+##########
+# GROUPS #
+##########
+
+weather:
+ - sensor.dark_sky_summary
+ - sensor.dark_sky_temperature
+ - sensor.dark_sky_humidity
+ - sensor.dark_sky_pressure
+ - sensor.dark_sky_cloud_cover
+ - sensor.dark_sky_wind_speed
+ - sensor.dark_sky_wind_bearing
+ - sensor.dark_sky_nearest_storm_distance
+ - sensor.dark_sky_nearest_storm_bearing
+ - sensor.dark_sky_precip_probability
+ - sun.sun
+ - sensor.moon_phase
+system:
+ - sensor.cpu_use
+ - sensor.ram_use
+ - sensor.disk_use_
+ - sensor.disk_use_home
+ - sensor.disk_use_var
+ - sensor.disk_use_tmp
+lights:
+ - light.bedroom_led
+ - scene.bedtime_scene
+ - light.livingroom_led
+ - light.tv_led
+ - light.frontporchzwavebulb_level_2_0
+location:
+ - sensor.whereami
+safety:
+ - input_boolean.safety_enable
+tools_grp:
+ - script.restart_ha
+ - cover.garage_door
+links:
+ - weblink.andrew_ha
+trackers:
+ #- device_tracker.owntracks_android
+ - device_tracker.owntracks_spluntyphone
+cameras:
+ - camera.frontcam
+ - camera.backcam
