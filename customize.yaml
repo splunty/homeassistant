@@ -8,14 +8,13 @@ light.bedroom_led:
 light.livingroom_led:
   friendly_name: Lamp
   icon: mdi:lamp
-light.frontporchzwavebulb_level_2_0:
+light.linear_lb60z1_dimmable_led_light_bulb_level_2_0:
   friendly_name: Front Porch Light
   icon: mdi:lightbulb
+light.linear_lb60z1_dimmable_led_light_bulb_level_5_0:
+  friendly_name: Driveway Light
+  icon: mdi:lightbulb
 
-scene.bedtime_scene:
-  friendly_name: Nightlight
-  emulated_hue_name: Nightlight
-  icon: mdi:sleep
 scene.tv_normal_scene:
   friendly_name: White Lights
   emulated_hue: false
@@ -65,12 +64,6 @@ group.safety_enable:
 script.restart_ha:
   emulated_hue: false
   icon: mdi:autorenew
-script.bedtime_timer:
-  emulated_hue: false
-script.bedroom_led_tick_tock:
-  emulated_hue: false
-script.killer_2:
-  emulated_hue: false
 
 link.andrew_ha:
   friendly_name: Andrew's HA Config

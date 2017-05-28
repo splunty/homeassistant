@@ -122,7 +122,7 @@ cover:
     command_topic: "cmd/garage_door"
 
 zwave:
-  usb_path: /dev/ttyACM0
+  usb_path: /dev/ttyACM1
 
 alexa: !include alexa.yaml
 automation: !include automation.yaml

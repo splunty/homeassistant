@@ -68,12 +68,3 @@
       transition: 0
       rgb_color: [255, 255, 255]  
 
-- name: bedtime_scene
-  entities:
-    light.bedroom_led:
-      state: on
-      transition: 0
-      brightness: 255
-      rgb_color: [0, 0, 255]
-    script.bedtime_timer:
-      state: on
