@@ -54,9 +54,6 @@ sensor.weather_humidity:
 sensor.weather_precip_probability:
   friendly_name: Percent Chance of Rain
   icon: mdi:weather-rainy
-sensor.whereami:
-  friendly_name: Where is Mike?
-  icon: mdi:help
 sensor.weather_temperature:
   friendly_name: Current Outdoor
 

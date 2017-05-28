@@ -2,54 +2,52 @@ homeassistant:
   name: Home
   customize: !include customize.yaml
   unit_system: imperial
-  latitude: 30.626784
-  longitude: -96.325236
+  latitude: secret
+  longitude: secret
   elevation: 103
   time_zone: America/Chicago
 
-logbook: # View all events in a logbook
-updater: # Checks for available updates
-sun: # Track the sun
 frontend: # Enables the frontend
-history: # Enables support for tracking state changes over time.
+logbook:  # View all events in a logbook
+updater:  # Checks for available updates
+history:  # Enables support for tracking state changes over time.
+sun:      # Track the sun
 
 http:
-  api_password: haha
+  api_password: secret
 
-#mqtt:
-#  broker: haha
-#  port: 8883
-#  keepalive: 60
-#  username: owntracks
-#  password: haha
-#  certificate: /etc/ssl/certs/ca-certificates.crt
-
-#Local MQTT Only (local devices publish here, and I subscribe over ssl via bridged remote MQTT)
 mqtt:
-  broker: 127.0.0.1
+  broker: secret
   port: 1883
   keepalive: 60
   username: owntracks
-  password: haha
+  password: secret
 
 notify:
   platform: pushbullet
-  api_key: haha
+  api_key: secret
   name: notify_push_android
 
-zone:
+#zone Home:
+#  name: Home
+#  latitude: secret
+#  longitude: secret
+#  radius: 100 
+#  icon: mdi:home
+
+zone Work:
   name: Work
-  latitude: haha
-  longitude: haha
-  radius: 500
+  latitude: secret
+  longitude: secret
+  radius: 250
   icon: mdi:worker
 
-zone 2:
+zone Allergy:
   name: Allergy Clinic
-  latitude: haha
-  longitude: haha
-  radius: 500
-  icon: mdi:worker
+  latitude: secret
+  longitude: secret
+  radius: 200
+  icon: mdi:needle
 
 proximity:
   home:
@@ -60,6 +58,7 @@ proximity:
 
 device_tracker:
   - platform: owntracks
+    max_gps_accuracy: 150
 
 light:
   platform: limitlessled
@@ -84,10 +83,10 @@ weblink:
       url: https://github.com/aneisch/home-assistant
       icon: mdi:chair-school
     - name: pics
-      url: http://ftp.thurk.net/cgi-bin/index.cgi
+      url: secret
       icon: mdi:google-photos
     - name: purge_pics
-      url: http://ftp.thurk.net/cgi-bin/purge.cgi
+      url: secret
       icon: mdi:shovel
 
 emulated_hue:
@@ -106,7 +105,7 @@ camera 1:
   name: frontcam
   port: 88
   username: admin
-  password: haha
+  password: secret
 
 camera 2:
   platform: foscam
@@ -114,7 +113,7 @@ camera 2:
   name: backcam
   port: 88
   username: admin
-  password: haha
+  password: secret
 
 cover:
   - platform: mqtt

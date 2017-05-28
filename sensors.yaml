@@ -1,5 +1,5 @@
 - platform: darksky
-  api_key: haha
+  api_key: secret
   monitored_conditions:
     - summary
     - nearest_storm_distance
