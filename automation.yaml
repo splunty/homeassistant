@@ -12,7 +12,7 @@
     data_template:
           message: "Garage door has been open for 10 minutes!"
 
-- alias: "Turn on porch light"
+- alias: "front porch light on"
   trigger:
     platform: state
     entity_id: device_tracker.owntracks_spluntyphone
@@ -22,28 +22,34 @@
       after: sunset
   action:
     - service: light.turn_on
-      entity_id: light.frontporchzwavebulb_level_2_0
+      entity_id: light.linear_lb60z1_dimmable_led_light_bulb_level_2_0
+      data:
+        brightness_pct: 10
+        transition: 0
     - service: notify.notify_push_android
       data_template:
-        message: "You left home. Front porch light on!"
+        message: "You left home after dark. Front porch light on!"
 
-- alias: "Turn off porch light"
+- alias: "welcome home - front porch light off"
   trigger:
-    platform: time
-    after: '02:00:00'
+    platform: state
+    entity_id: device_tracker.owntracks_spluntyphone
+    to: 'home'
   condition:
-    condition: and
-    conditions:
-      - condition: state
-        entity_id: 'device_tracker.owntracks_spluntyphone'
-        state: 'home'
-      - condition: state
-        entity_id: light.frontporchzwavebulb_level_2_0
-        state: 'on'
+    - condition: state
+      entity_id: light.linear_lb60z1_dimmable_led_light_bulb_level_2_0
+      state: 'on'
   action:
+    - service: notify.notify_push_android
+      data_template:
+        message: "Welcome home! Lights off in 15!"
+    - delay: 00:15:00
+    - service: light.turn_on
+      entity_id: light.linear_lb60z1_dimmable_led_light_bulb_level_2_0
+      data:
+        brightness_pct: 10
+        transition: 0
+    - delay: 00:00:01
     - service: light.turn_off
-      entity_id: light.frontporchzwavebulb_level_2_0
-    #- service: notify.notify_push_android
-    #  data_template:
-    #    message: "You are home. Front porch light off!"
+      entity_id: light.linear_lb60z1_dimmable_led_light_bulb_level_2_0
 

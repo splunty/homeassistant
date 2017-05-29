@@ -9,10 +9,10 @@ light.livingroom_led:
   friendly_name: Lamp
   icon: mdi:lamp
 light.linear_lb60z1_dimmable_led_light_bulb_level_2_0:
-  friendly_name: Front Porch Light
-  icon: mdi:lightbulb
-light.linear_lb60z1_dimmable_led_light_bulb_level_5_0:
   friendly_name: Driveway Light
+  icon: mdi:lightbulb
+light.linear_lb60z1_dimmable_led_light_bulb_level_3_0:
+  friendly_name: Front Porch Light
   icon: mdi:lightbulb
 
 scene.tv_normal_scene:
