@@ -17,6 +17,7 @@
     platform: state
     entity_id: device_tracker.owntracks_spluntyphone
     from: 'home'
+    to: 'not_home'
   condition:
     - condition: sun
       after: sunset
@@ -24,8 +25,7 @@
     - service: light.turn_on
       entity_id: light.linear_lb60z1_dimmable_led_light_bulb_level_3_0
       data:
-        brightness_pct: 10
-        transition: 0
+        brightness_pct: 100
     - service: notify.notify_push_android
       data_template:
         message: "You left home after dark. Front porch light on!"
@@ -34,6 +34,7 @@
   trigger:
     platform: state
     entity_id: device_tracker.owntracks_spluntyphone
+    from: 'not_home'
     to: 'home'
   condition:
     - condition: state
@@ -44,12 +45,6 @@
       data_template:
         message: "Welcome home! Lights off in 15!"
     - delay: 00:15:00
-    - service: light.turn_on
-      entity_id: light.linear_lb60z1_dimmable_led_light_bulb_level_3_0
-      data:
-        brightness_pct: 10
-        transition: 0
-    - delay: 00:00:01
     - service: light.turn_off
       entity_id: light.linear_lb60z1_dimmable_led_light_bulb_level_3_0
 
@@ -60,18 +55,14 @@
   action:
     - service: light.turn_on
       entity_id: light.linear_lb60z1_dimmable_led_light_bulb_level_2_0
+      data:
+        brightness_pct: 100
 
 - alias: "driveway light off"
   trigger:
     platform: sun
     event: sunrise
   action:
-    - service: light.turn_on
-      entity_id: light.linear_lb60z1_dimmable_led_light_bulb_level_2_0
-      data:
-        brightness_pct: 10
-        transition: 0
-    - delay: 00:00:01
     - service: light.turn_off
       entity_id: light.linear_lb60z1_dimmable_led_light_bulb_level_2_0
 

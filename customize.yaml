@@ -14,6 +14,9 @@ light.linear_lb60z1_dimmable_led_light_bulb_level_2_0:
 light.linear_lb60z1_dimmable_led_light_bulb_level_3_0:
   friendly_name: Front Porch Light
   icon: mdi:lightbulb
+light.ge_unknown_type4c42_id3031_level_4_0:
+  friendly_name: Back Porch Light
+  icon: mdi:lightbulb
 
 scene.tv_normal_scene:
   friendly_name: White Lights
