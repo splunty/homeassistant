@@ -10,7 +10,7 @@
   action:
     service: notify.notify_push_android
     data_template:
-          message: "Garage door has been open for 10 minutes!"
+       message: "Garage door has been open for 10 minutes!"
 
 - alias: "front porch light on"
   trigger:
@@ -65,4 +65,40 @@
   action:
     - service: light.turn_off
       entity_id: light.linear_lb60z1_dimmable_led_light_bulb_level_2_0
+
+- alias: "back porch light on - door open after sunset"
+  trigger:
+    - platform: state
+      entity_id: binary_sensor.ecolink_unknown_type0004_id0002_sensor_5_0
+      state: 'on'
+      for:
+        seconds: 1
+    - platform: sun
+      event: sunset
+      offset: "+00:05:00"
+  condition:
+    condition: and
+    conditions:
+      - condition: sun
+        after: sunset
+      - condition: state
+        entity_id: binary_sensor.ecolink_unknown_type0004_id0002_sensor_5_0
+        state: 'on'
+  action:
+    - service: light.turn_on
+      entity_id: light.ge_unknown_type4c42_id3031_level_4_0
+    - service: notify.notify_push_android
+      data_template:
+        message: "Back porch light turned on."
+
+- alias: "back porch light off - door shut"
+  trigger:
+    platform: state
+    entity_id: binary_sensor.ecolink_unknown_type0004_id0002_sensor_5_0
+    state: 'off'
+    for:
+      seconds: 1
+  action:
+    - service: light.turn_off
+      entity_id: light.ge_unknown_type4c42_id3031_level_4_0
 
