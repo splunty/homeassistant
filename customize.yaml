@@ -1,3 +1,7 @@
+sensor.front_dead_bolt_battery:
+  friendly_name: Battery Level
+  icon: mdi:battery
+
 light.tv_led:
   friendly_name: TV Lights
   emulated_hue_name: Backlight
@@ -14,8 +18,14 @@ light.linear_lb60z1_dimmable_led_light_bulb_level_2_0:
 light.linear_lb60z1_dimmable_led_light_bulb_level_3_0:
   friendly_name: Front Porch Light
   icon: mdi:lightbulb
+light.linear_lb60z1_dimmable_led_light_bulb_level_7_0:
+  friendly_name: Garage Light
+  icon: mdi:lightbulb
+light.linear_lb60z1_dimmable_led_light_bulb_level_8_0:
+  friendly_name: Back Porch Light 1
+  icon: mdi:lightbulb
 light.ge_unknown_type4c42_id3031_level_4_0:
-  friendly_name: Back Porch Light
+  friendly_name: Back Porch Light 2
   icon: mdi:lightbulb
 
 scene.tv_normal_scene:
@@ -79,3 +89,24 @@ input_boolean.safety_enable:
 device_tracker.owntracks_spluntyphone:
   friendly_name: Splunty Android
   #entity_picture: /local/andrew.jpg
+
+group.locks:
+  friendly_name: Locks
+lock.schlage_be469nxcen_touchscreen_deadbolt_locked_6_0:
+  friendly_name: Front Dead Bolt
+cover.schlage_be469nxcen_touchscreen_deadbolt_level_6_0:
+  friendly_name: Power Level
+sensor.schlage_be469nxcen_touchscreen_deadbolt_access_control_6_9:
+  friendly_name: Access Control
+sensor.schlage_be469nxcen_touchscreen_deadbolt_alarm_level_6_1:
+  friendly_name: Alarm Level
+sensor.schlage_be469nxcen_touchscreen_deadbolt_alarm_type_6_0:
+  friendly_name: Alarm Type
+sensor.schlage_be469nxcen_touchscreen_deadbolt_burglar_6_10:
+  friendly_name: Burgler
+sensor.schlage_be469nxcen_touchscreen_deadbolt_power_management_6_11:
+  friendly_name: Power Management
+sensor.schlage_be469nxcen_touchscreen_deadbolt_sourcenodeid_6_2:
+  friendly_name: Source Node ID
+sensor.schlage_be469nxcen_touchscreen_deadbolt_system_6_12:
+  friendly_name: System

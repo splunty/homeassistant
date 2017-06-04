@@ -36,3 +36,9 @@
   name: whereami
   value_template: "{{ value_json.tracking }}"
 
+- platform: template
+  sensors:
+    front_dead_bolt_battery:
+      value_template: >-
+        {{ states.zwave.schlage_be469nxcen_touchscreen_deadbolt_6.attributes.battery_level }}
+

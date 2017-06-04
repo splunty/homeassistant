@@ -124,13 +124,19 @@ cover:
 zwave:
   usb_path: /dev/ttyACM0
   device_config:
-    light.ge_unknown_type4c42_id3031_level_4_0:
+    light.ge_unknown_type4c42_id3031_level_4_0: # back porch light 1
       refresh_value: true
       delay: 3
     light.linear_lb60z1_dimmable_led_light_bulb_level_2_0:
       refresh_value: true
       delay: 3
     light.linear_lb60z1_dimmable_led_light_bulb_level_3_0:
+      refresh_value: true
+      delay: 3
+    light.linear_lb60z1_dimmable_led_light_bulb_level_7_0: # garage
+      refresh_value: true
+      delay: 3
+    light.linear_lb60z1_dimmable_led_light_bulb_level_8_0: # back porch 2
       refresh_value: true
       delay: 3
 

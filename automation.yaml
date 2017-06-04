@@ -1,3 +1,28 @@
+- alias: "Front door unlocked"
+  trigger:
+    platform: state
+    entity_id: lock.schlage_be469nxcen_touchscreen_deadbolt_locked_6_0
+    from: "locked"
+    to: "unlocked"
+  condition:
+    - condition: state
+      entity_id: device_tracker.owntracks_spluntyphone
+      state: 'not_home'
+  action:
+    service: notify.notify_push_android
+    data_template:
+      message: "The front door was unlocked!"
+
+- alias: "Change lock batteries"
+  trigger:
+    platform: numeric_state
+    entity_id: sensor.front_dead_bolt_battery
+    below: 10
+  action:
+    service: notify.notify_push_android
+    data_template:
+      message: "The deadbolt AA batteries are at {{ states.zwave.schlage_be469nxcen_touchscreen_deadbolt_6.attributes.battery_level }}%."
+
 - alias: "Garage open for 10 minutes"
   trigger:
     platform: state
@@ -87,6 +112,8 @@
   action:
     - service: light.turn_on
       entity_id: light.ge_unknown_type4c42_id3031_level_4_0
+    - service: light.turn_on
+      entity_id: light.linear_lb60z1_dimmable_led_light_bulb_level_8_0
     - service: notify.notify_push_android
       data_template:
         message: "Back porch light turned on."
@@ -101,4 +128,6 @@
   action:
     - service: light.turn_off
       entity_id: light.ge_unknown_type4c42_id3031_level_4_0
+    - service: light.turn_off
+      entity_id: light.linear_lb60z1_dimmable_led_light_bulb_level_8_0
 
