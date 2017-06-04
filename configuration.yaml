@@ -36,14 +36,14 @@ notify:
 #  icon: mdi:home
 
 zone Work:
-  name: Work
+  name: work
   latitude: secret
   longitude: secret
   radius: 250
   icon: mdi:worker
 
 zone Allergy:
-  name: Allergy Clinic
+  name: allergy
   latitude: secret
   longitude: secret
   radius: 200
@@ -124,19 +124,19 @@ cover:
 zwave:
   usb_path: /dev/ttyACM0
   device_config:
-    light.ge_unknown_type4c42_id3031_level_4_0: # back porch light 1
+    light.ge_unknown_type4c42_id3031_level_9_0: # back porch light 2
       refresh_value: true
       delay: 3
-    light.linear_lb60z1_dimmable_led_light_bulb_level_2_0:
+    light.linear_lb60z1_dimmable_led_light_bulb_level_2_0: # driveway
       refresh_value: true
       delay: 3
-    light.linear_lb60z1_dimmable_led_light_bulb_level_3_0:
+    light.linear_lb60z1_dimmable_led_light_bulb_level_3_0: # front porch
       refresh_value: true
       delay: 3
     light.linear_lb60z1_dimmable_led_light_bulb_level_7_0: # garage
       refresh_value: true
       delay: 3
-    light.linear_lb60z1_dimmable_led_light_bulb_level_8_0: # back porch 2
+    light.linear_lb60z1_dimmable_led_light_bulb_level_8_0: # back porch 1
       refresh_value: true
       delay: 3
 

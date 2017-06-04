@@ -64,7 +64,7 @@ lights:
      - light.linear_lb60z1_dimmable_led_light_bulb_level_3_0
      - light.linear_lb60z1_dimmable_led_light_bulb_level_7_0
      - light.linear_lb60z1_dimmable_led_light_bulb_level_8_0
-     - light.ge_unknown_type4c42_id3031_level_4_0
+     - light.ge_unknown_type4c42_id3031_level_9_0
 
 safety:
  - input_boolean.safety_enable

@@ -5,9 +5,17 @@
     from: "locked"
     to: "unlocked"
   condition:
-    - condition: state
-      entity_id: device_tracker.owntracks_spluntyphone
-      state: 'not_home'
+    condition: or
+    conditions:
+      - condition: state
+        entity_id: device_tracker.owntracks_spluntyphone
+        state: 'not_home'
+      - condition: state
+        entity_id: device_tracker.owntracks_spluntyphone
+        state: 'work'
+      - condition: state
+        entity_id: device_tracker.owntracks_spluntyphone
+        state: 'allergy'
   action:
     service: notify.notify_push_android
     data_template:
@@ -104,14 +112,18 @@
   condition:
     condition: and
     conditions:
-      - condition: sun
-        after: sunset
       - condition: state
         entity_id: binary_sensor.ecolink_unknown_type0004_id0002_sensor_5_0
         state: 'on'
+      - condition: or
+        conditions:
+          - condition: sun
+            after: sunset
+          - condition: sun
+            before: sunrise
   action:
     - service: light.turn_on
-      entity_id: light.ge_unknown_type4c42_id3031_level_4_0
+      entity_id: light.ge_unknown_type4c42_id3031_level_9_0
     - service: light.turn_on
       entity_id: light.linear_lb60z1_dimmable_led_light_bulb_level_8_0
     - service: notify.notify_push_android
@@ -127,7 +139,6 @@
       seconds: 1
   action:
     - service: light.turn_off
-      entity_id: light.ge_unknown_type4c42_id3031_level_4_0
+      entity_id: light.ge_unknown_type4c42_id3031_level_9_0
     - service: light.turn_off
       entity_id: light.linear_lb60z1_dimmable_led_light_bulb_level_8_0
-
