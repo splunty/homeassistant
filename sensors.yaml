@@ -32,9 +32,9 @@
   value_template: "{{ value_json.phase }}"
 
 - platform: mqtt
-  state_topic: "splunty/tracking"
-  name: whereami
-  value_template: "{{ value_json.tracking }}"
+  state_topic: "splunty/frontdoor"
+  name: "front_door_mqtt"
+  value_template: "{{ value_json.frontdoor }}"
 
 - platform: template
   sensors:
