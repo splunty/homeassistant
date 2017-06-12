@@ -80,7 +80,7 @@ light:
 weblink:
   entities:
     - name: andrew_ha
-      url: https://github.com/aneisch/home-assistant
+      url: secret
       icon: mdi:chair-school
     - name: pics
       url: secret

@@ -68,3 +68,53 @@
       transition: 0
       rgb_color: [255, 255, 255]  
 
+- name: bedlight_white
+  entities:
+    light.bedroom_led:
+      state: on
+      transition: 3
+      brightness: 255
+      rgb_color: [255, 255, 255]
+
+- name: bedlight_blue
+  entities:
+    light.bedroom_led:
+      state: on
+      transition: 3
+      rgb_color: [0, 0, 255]
+
+- name: bedlight_azure
+  entities:
+    light.bedroom_led:
+      state: on
+      transition: 3
+      rgb_color: [135, 206, 230]
+
+- name: bedlight_red
+  entities:
+    light.bedroom_led:
+      state: on
+      transition: 3
+      rgb_color: [255, 0, 0]
+
+- name: bedlight_green
+  entities:
+    light.bedroom_led:
+      state: on
+      transition: 3
+      rgb_color: [0, 255, 0]
+
+- name: bedlight_purple
+  entities:
+    light.bedroom_led:
+      state: on
+      transition: 3
+      rgb_color: [184, 58, 255]
+
+- name: bedlight_orange
+  entities:
+    light.bedroom_led:
+      state: on
+      transition: 3
+      rgb_color: [255, 93, 78]
+
