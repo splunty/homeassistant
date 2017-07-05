@@ -2,63 +2,72 @@
   entities:
     light.tv_led:
       state: on
-      transition: 3
+      transition: 1
+      brightness: 255
       rgb_color: [255, 93, 78]
 
 - name: white
   entities:
     light.tv_led:
       state: on
-      transition: 3
+      transition: 1
+      brightness: 255
       rgb_color: [255, 255, 255]
 
 - name: pink
   entities:
     light.tv_led:
       state: on
-      transition: 3
+      transition: 1
+      brightness: 255
       rgb_color: [255, 20, 140]
 
 - name: azure
   entities:
     light.tv_led:
       state: on
-      transition: 3
+      transition: 1
+      brightness: 255
       rgb_color: [135, 206, 230]
 
 - name: yellow
   entities:
     light.tv_led:
       state: on
-      transition: 3
+      transition: 1
+      brightness: 255
       rgb_color: [255, 139, 9]
 
 - name: red
   entities:
     light.tv_led:
       state: on
-      transition: 3
+      transition: 1
+      brightness: 255
       rgb_color: [255, 0, 0]
 
 - name: green
   entities:
     light.tv_led:
       state: on
-      transition: 3
+      transition: 1
+      brightness: 255
       rgb_color: [0, 255, 0]
 
 - name: blue
   entities:
     light.tv_led:
       state: on
-      transition: 3
+      transition: 1
+      brightness: 255
       rgb_color: [0, 0, 255]
 
 - name: purple
   entities:
     light.tv_led:
       state: on
-      transition: 3
+      transition: 1
+      brightness: 255
       rgb_color: [184, 58, 255]
 
 - name: tv_normal_scene
@@ -66,7 +75,14 @@
     light.tv_led:
       state: on
       transition: 0
+      brightness: 255
       rgb_color: [255, 255, 255]  
+
+- name: tv_off_scene
+  entities:
+    light.tv_led:
+      state: off
+      transition: 0
 
 - name: bedlight_white
   entities:

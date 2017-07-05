@@ -58,12 +58,12 @@ proximity:
 
 device_tracker:
   - platform: owntracks
-    max_gps_accuracy: 50
+    max_gps_accuracy: 100
 
 light:
   platform: limitlessled
   bridges:
-  - host: 10.10.10.8
+  - host: 10.10.10.20
     version: 5
     port: 8899
     groups:
@@ -123,20 +123,21 @@ cover:
 
 zwave:
   usb_path: /dev/ttyACM0
+  new_entity_ids: true
   device_config:
-    light.ge_unknown_type4c42_id3031_level_9_0: # back porch light 2
+    light.back_porch_light_2_level:
       refresh_value: true
       delay: 3
-    light.linear_lb60z1_dimmable_led_light_bulb_level_2_0: # driveway
+    light.driveway_light_level:
       refresh_value: true
       delay: 3
-    light.linear_lb60z1_dimmable_led_light_bulb_level_3_0: # front porch
+    light.front_porch_light_level: # front porch
       refresh_value: true
       delay: 3
-    light.linear_lb60z1_dimmable_led_light_bulb_level_7_0: # garage
+    light.light_garage_level: # garage
       refresh_value: true
       delay: 3
-    light.linear_lb60z1_dimmable_led_light_bulb_level_8_0: # back porch 1
+    light.back_porch_light_1_level:
       refresh_value: true
       delay: 3
 

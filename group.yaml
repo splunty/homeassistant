@@ -60,11 +60,12 @@ lights:
      - light.bedroom_led
      - light.livingroom_led
      - light.tv_led
-     - light.linear_lb60z1_dimmable_led_light_bulb_level_2_0
-     - light.linear_lb60z1_dimmable_led_light_bulb_level_3_0
-     - light.linear_lb60z1_dimmable_led_light_bulb_level_7_0
-     - light.linear_lb60z1_dimmable_led_light_bulb_level_8_0
-     - light.ge_unknown_type4c42_id3031_level_9_0
+     - light.driveway_light_level
+     - light.front_porch_light_level
+     - light.garage_light_level
+     - light.back_porch_light_1_level
+     - light.back_porch_light_2_level
+     - switch.outlet_lizard_cage_switch 
 
 safety:
  - input_boolean.safety_enable
@@ -88,9 +89,9 @@ cameras:
 locks:
    control: hidden
    entities:
-      - lock.schlage_be469nxcen_touchscreen_deadbolt_locked_6_0
+      - lock.front_deadbolt_locked
       - sensor.front_dead_bolt_battery
-      - sensor.schlage_be469nxcen_touchscreen_deadbolt_alarm_type_6_0
+      - sensor.front_deadbolt_alarm_type
 #18 Keypad Lock
 #19 Keypad Unlock
 #21 Manual Lock

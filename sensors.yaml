@@ -40,5 +40,5 @@
   sensors:
     front_dead_bolt_battery:
       value_template: >-
-        {{ states.zwave.schlage_be469nxcen_touchscreen_deadbolt_6.attributes.battery_level }}
+        {{ states.zwave.front_deadbolt.attributes.battery_level }}
 

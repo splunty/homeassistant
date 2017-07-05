@@ -1,7 +1,7 @@
 - alias: "Front door unlocked"
   trigger:
     platform: state
-    entity_id: lock.schlage_be469nxcen_touchscreen_deadbolt_locked_6_0
+    entity_id: lock.front_deadbolt_locked
     from: "locked"
     to: "unlocked"
   condition:
@@ -29,7 +29,7 @@
   action:
     service: notify.notify_push_android
     data_template:
-      message: "The deadbolt AA batteries are at {{ states.zwave.schlage_be469nxcen_touchscreen_deadbolt_6.attributes.battery_level }}%."
+      message: "The deadbolt AA batteries are at {{ states.zwave.front_deadbolt.attributes.battery_level }}%."
 
 - alias: "Garage open for 10 minutes"
   trigger:
@@ -56,7 +56,7 @@
       after: sunset
   action:
     - service: light.turn_on
-      entity_id: light.linear_lb60z1_dimmable_led_light_bulb_level_3_0
+      entity_id: light.front_porch_light_level
       data:
         brightness_pct: 100
     - service: notify.notify_push_android
@@ -71,7 +71,7 @@
     to: 'home'
   condition:
     - condition: state
-      entity_id: light.linear_lb60z1_dimmable_led_light_bulb_level_3_0
+      entity_id: light.front_porch_light_level
       state: 'on'
   action:
     - service: notify.notify_push_android
@@ -79,30 +79,34 @@
         message: "Welcome home! Lights off in 15!"
     - delay: 00:15:00
     - service: light.turn_off
-      entity_id: light.linear_lb60z1_dimmable_led_light_bulb_level_3_0
+      entity_id: light.front_porch_light_level
 
-- alias: "driveway light on"
+- alias: "driveway light on, lizard cage off"
   trigger:
     platform: sun
     event: sunset
   action:
     - service: light.turn_on
-      entity_id: light.linear_lb60z1_dimmable_led_light_bulb_level_2_0
+      entity_id: light.driveway_light_level
       data:
         brightness_pct: 100
+    - service: switch.turn_off
+      entity_id: switch.outlet_lizard_cage_switch
 
-- alias: "driveway light off"
+- alias: "driveway light off, lizard cage on"
   trigger:
     platform: sun
     event: sunrise
   action:
     - service: light.turn_off
-      entity_id: light.linear_lb60z1_dimmable_led_light_bulb_level_2_0
+      entity_id: light.driveway_light_level
+    - service: switch.turn_on
+      entity_id: switch.outlet_lizard_cage_switch
 
 - alias: "back porch light on - door open after sunset"
   trigger:
     - platform: state
-      entity_id: binary_sensor.ecolink_unknown_type0004_id0002_sensor_5_0
+      entity_id: binary_sensor.contact_back_door_sensor
       state: 'on'
       for:
         seconds: 1
@@ -113,7 +117,7 @@
     condition: and
     conditions:
       - condition: state
-        entity_id: binary_sensor.ecolink_unknown_type0004_id0002_sensor_5_0
+        entity_id: binary_sensor.contact_back_door_sensor
         state: 'on'
       - condition: or
         conditions:
@@ -123,22 +127,22 @@
             before: sunrise
   action:
     - service: light.turn_on
-      entity_id: light.ge_unknown_type4c42_id3031_level_9_0
+      entity_id: light.back_porch_light_2_level
     - service: light.turn_on
-      entity_id: light.linear_lb60z1_dimmable_led_light_bulb_level_8_0
+      entity_id: light.back_porch_light_1_level
 
 - alias: "back porch light off - door shut"
   trigger:
     platform: state
-    entity_id: binary_sensor.ecolink_unknown_type0004_id0002_sensor_5_0
+    entity_id: binary_sensor.contact_back_door_sensor
     state: 'off'
     for:
       seconds: 1
   action:
     - service: light.turn_off
-      entity_id: light.ge_unknown_type4c42_id3031_level_9_0
+      entity_id: light.back_porch_light_2_level
     - service: light.turn_off
-      entity_id: light.linear_lb60z1_dimmable_led_light_bulb_level_8_0
+      entity_id: light.back_porch_light_1_level
 
 - alias: "unlock from door with nfc sticker"
   trigger:
@@ -148,20 +152,20 @@
     to: "unlock"
   action:
     - service: lock.unlock
-      entity_id: lock.schlage_be469nxcen_touchscreen_deadbolt_locked_6_0
+      entity_id: lock.front_deadbolt_locked
 
 - alias: "garage light on for 10 minutes"
   trigger:
     platform: state
-    entity_id: binary_sensor.ecolink_unknown_type0004_id0002_sensor_11_0
+    entity_id: binary_sensor.contact_garage_door_sensor
     state: 'on'
   condition:
     - condition: state
-      entity_id: light.linear_lb60z1_dimmable_led_light_bulb_level_7_0
+      entity_id: light.garage_light_level
       state: 'off'
   action:
     - service: light.turn_on
-      entity_id: light.linear_lb60z1_dimmable_led_light_bulb_level_7_0
+      entity_id: light.garage_light_level
     - delay: 00:10:00
     - service: light.turn_off
-      entity_id: light.linear_lb60z1_dimmable_led_light_bulb_level_7_0
+      entity_id: light.garage_light_level
