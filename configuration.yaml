@@ -121,6 +121,8 @@ cover:
     state_topic: "sensor/garage_door"
     command_topic: "cmd/garage_door"
 
+config:
+
 zwave:
   usb_path: /dev/ttyACM0
   new_entity_ids: true
@@ -134,15 +136,15 @@ zwave:
     light.front_porch_light_level: # front porch
       refresh_value: true
       delay: 3
-    light.light_garage_level: # garage
+    light.garage_light_level: # garage
       refresh_value: true
       delay: 3
     light.back_porch_light_1_level:
       refresh_value: true
       delay: 3
 
-alexa: !include alexa.yaml
 automation: !include automation.yaml
+#alexa: !include alexa.yaml
 group: !include group.yaml
 input_boolean: !include input_boolean.yaml
 scene: !include scenes.yaml

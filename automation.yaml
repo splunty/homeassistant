@@ -1,3 +1,12 @@
+- alias: "track phone"
+  trigger:
+    platform: state
+    entity_id: device_tracker.owntracks_spluntyphone
+  action:
+    service: notify.notify_push_android
+    data_template:
+      message: "Phone: {{ states.device_tracker.owntracks_spluntyphone.state }}."
+
 - alias: "Front door unlocked"
   trigger:
     platform: state
@@ -25,7 +34,7 @@
   trigger:
     platform: numeric_state
     entity_id: sensor.front_dead_bolt_battery
-    below: 10
+    below: 50
   action:
     service: notify.notify_push_android
     data_template:
@@ -35,7 +44,7 @@
   trigger:
     platform: state
     entity_id: cover.garage_door
-    state: "open"
+    to: "open"
     for:
        hours: 0
        minutes: 10
@@ -107,7 +116,7 @@
   trigger:
     - platform: state
       entity_id: binary_sensor.contact_back_door_sensor
-      state: 'on'
+      to: 'on'
       for:
         seconds: 1
     - platform: sun
@@ -135,7 +144,7 @@
   trigger:
     platform: state
     entity_id: binary_sensor.contact_back_door_sensor
-    state: 'off'
+    to: 'off'
     for:
       seconds: 1
   action:
@@ -158,7 +167,7 @@
   trigger:
     platform: state
     entity_id: binary_sensor.contact_garage_door_sensor
-    state: 'on'
+    to: 'on'
   condition:
     - condition: state
       entity_id: light.garage_light_level
